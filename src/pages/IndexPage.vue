@@ -546,11 +546,26 @@ const services = computed(() => [
 ])
 
 const materials = computed(() => [
-  t('production.materials.hdpe'),
-  t('production.materials.ldpe'),
-  t('production.materials.pp'),
-  t('production.materials.ppCopo'),
-  t('production.materials.polyethylene'),
+  {
+    name: t('production.materials.hdpe.name'),
+    desc: t('production.materials.hdpe.desc'),
+  },
+  {
+    name: t('production.materials.ldpe.name'),
+    desc: t('production.materials.ldpe.desc'),
+  },
+  {
+    name: t('production.materials.pp.name'),
+    desc: t('production.materials.pp.desc'),
+  },
+  {
+    name: t('production.materials.ppCopo.name'),
+    desc: t('production.materials.ppCopo.desc'),
+  },
+  {
+    name: t('production.materials.polyethylene.name'),
+    desc: t('production.materials.polyethylene.desc'),
+  },
 ])
 
 const reasons = computed(() => [

@@ -169,10 +169,16 @@
           </div>
 
           <div class="footer-text q-mt-md">
-            <div class="q-mb-sm">Stevana Prvovenčanog 71</div>
-            <div class="q-mb-sm">Čačak, Srbija</div>
-            <div class="q-mb-sm">[UNESI EMAIL OVDE]</div>
-            <div>[UNESI BROJ TELEFONA OVDE]</div>
+            <div class="q-mb-sm">{{ t('contact.addressValue') }}</div>
+            <div class="q-mb-sm">
+              <a href="mailto:gugovic@mts.rs">gugovic@mts.rs</a>
+            </div>
+            <div>
+              <a href="tel:+381638959941">+381 63 8959941</a>
+            </div>
+            <div>
+              <a href="tel:+381646162273">+381 64 6162273</a>
+            </div>
           </div>
         </div>
 
