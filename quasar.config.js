@@ -6,6 +6,8 @@ export default configure(() => {
   return {
     supportTS: false,
 
+    boot: ['i18n'],
+
     css: ['app.scss'],
 
     extras: ['material-icons'],

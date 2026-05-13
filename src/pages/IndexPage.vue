@@ -4,13 +4,17 @@
       <div class="cat-container">
         <div class="hero-grid">
           <div class="hero-content">
-            <div class="hero-kicker reveal">Est. 1992 / Čačak, Srbija</div>
+            <div class="hero-kicker reveal">
+              {{ t('hero.eyebrow') }}
+            </div>
 
-            <h1 class="hero-title reveal">Trideset godina <span>precizne ambalaže.</span></h1>
+            <h1 class="hero-title reveal">
+              {{ t('hero.titleA') }}
+              <span>{{ t('hero.titleB') }}</span>
+            </h1>
 
             <p class="hero-description reveal">
-              CAT DOO Čačak je industrijski proizvođač ambalaže sa dugom tradicijom, stabilnim
-              poslovanjem i fokusom na B2B potrebe proizvodnje, trgovine i distribucije.
+              {{ t('hero.description') }}
             </p>
 
             <div class="hero-actions reveal">
@@ -18,7 +22,7 @@
                 unelevated
                 class="cat-btn"
                 icon-right="arrow_forward"
-                label="Kontaktirajte nas"
+                :label="t('hero.primary')"
                 @click="scrollToSection('contact')"
               />
 
@@ -26,7 +30,7 @@
                 outline
                 class="cat-btn"
                 icon-right="arrow_downward"
-                label="Saznajte više"
+                :label="t('hero.secondary')"
                 @click="scrollToSection('about')"
               />
             </div>
@@ -37,15 +41,18 @@
               <div class="hero-visual__pattern"></div>
 
               <div class="hero-visual__content">
-                <div class="hero-visual__code">CAT / INDUSTRIAL PACKAGING</div>
+                <div class="hero-visual__code">
+                  {{ t('hero.visualCode') }}
+                </div>
+
                 <div class="hero-visual__box">
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
+
                 <div class="hero-visual__caption">
-                  Proizvodnja ambalaže<br />
-                  za stabilne poslovne sisteme
+                  {{ t('hero.visualCaption') }}
                 </div>
               </div>
 
@@ -77,19 +84,19 @@
         <div class="row q-col-gutter-xl items-end">
           <div class="col-12 col-md-7">
             <div class="reveal">
-              <div class="industrial-eyebrow">01 / O kompaniji</div>
+              <div class="industrial-eyebrow">
+                {{ t('about.eyebrow') }}
+              </div>
 
               <h2 class="section-title">
-                Proizvodnja, promet i usluge sa industrijskom disciplinom.
+                {{ t('about.title') }}
               </h2>
             </div>
           </div>
 
           <div class="col-12 col-md-5">
             <p class="section-lead reveal">
-              CAT DOO ČAČAK posluje od 14.07.1992. godine kao aktivno privredno društvo sa sedištem
-              u Čačku. Kompanija je usmerena na proizvodnju ambalažnih rešenja za potrebe industrije
-              i tržišta.
+              {{ t('about.lead') }}
             </p>
           </div>
         </div>
@@ -98,19 +105,15 @@
           <div class="col-12 col-md-6">
             <div class="about-highlight reveal">
               <p class="about-text q-mb-md">
-                Pun naziv kompanije je
-                <strong>Preduzeće za proizvodnju, promet i usluge CAT DOO Čačak</strong>.
-                Registrovana adresa je Stevana Prvovenčanog 71, Čačak, Srbija.
+                {{ t('about.p1') }}
               </p>
 
               <p class="about-text q-mb-md">
-                Kompanija posluje u industrijskoj delatnosti proizvodnje ambalaže i pripada šifri
-                delatnosti <strong>1721</strong>.
+                {{ t('about.p2') }}
               </p>
 
               <p class="about-text q-mb-none">
-                Kroz više od tri decenije rada, CAT DOO ČAČAK gradi poverenje kroz stabilnost,
-                preciznost i kontinuitet isporuke.
+                {{ t('about.p3') }}
               </p>
             </div>
           </div>
@@ -120,16 +123,24 @@
               <div class="col-12 col-sm-6">
                 <q-card flat class="stat-card reveal">
                   <div class="stat-value">1992</div>
-                  <div class="stat-label">Godina osnivanja</div>
-                  <p class="q-mt-md q-mb-none">REGISTROVANO PRIVREDNO DRUŠTVO</p>
+                  <div class="stat-label">
+                    {{ t('about.founded') }}
+                  </div>
+                  <p class="q-mt-md q-mb-none">
+                    {{ t('about.foundedSub') }}
+                  </p>
                 </q-card>
               </div>
 
               <div class="col-12 col-sm-6">
                 <q-card flat class="stat-card reveal">
                   <div class="stat-value">30+</div>
-                  <div class="stat-label">Godina iskustva</div>
-                  <p class="q-mt-md q-mb-none">KONTINUITET U INDUSTRIJI</p>
+                  <div class="stat-label">
+                    {{ t('about.experience') }}
+                  </div>
+                  <p class="q-mt-md q-mb-none">
+                    {{ t('about.experienceSub') }}
+                  </p>
                 </q-card>
               </div>
 
@@ -137,8 +148,12 @@
                 <q-card flat class="stat-card stat-card--wide reveal">
                   <div>
                     <div class="stat-value">A+</div>
-                    <div class="stat-label">Bonitet i stabilnost poslovanja</div>
-                    <p class="q-mt-md q-mb-none">POUZDAN B2B PARTNER ZA AMBALAŽNA REŠENJA</p>
+                    <div class="stat-label">
+                      {{ t('about.rating') }}
+                    </div>
+                    <p class="q-mt-md q-mb-none">
+                      {{ t('about.ratingSub') }}
+                    </p>
                   </div>
                 </q-card>
               </div>
@@ -152,15 +167,19 @@
       <div class="cat-container">
         <div class="section-head reveal">
           <div>
-            <div class="industrial-eyebrow">02 / Proizvodi</div>
+            <div class="industrial-eyebrow">
+              {{ t('production.eyebrow') }}
+            </div>
 
-            <h2 class="section-title">Ambalaža za proizvodnju, skladištenje i distribuciju.</h2>
+            <h2 class="section-title">
+              {{ t('production.title') }}
+            </h2>
           </div>
-
-          <a href="#contact" class="section-link" @click.prevent="scrollToSection('contact')">
-            → Pošaljite upit
-          </a>
         </div>
+
+        <p class="section-lead reveal q-mt-lg production-lead">
+          {{ t('production.lead') }}
+        </p>
 
         <div class="row q-col-gutter-lg q-mt-xl">
           <div v-for="service in services" :key="service.code" class="col-12 col-md-4">
@@ -170,7 +189,113 @@
               :title="service.title"
               :description="service.description"
               :featured="service.featured"
+              :label="t('services.cardLabel')"
             />
+          </div>
+        </div>
+
+        <div class="materials-panel reveal q-mt-xl">
+          <div class="section-head">
+            <div>
+              <div class="industrial-eyebrow">
+                {{ t('production.materialsTitle') }}
+              </div>
+              <h3 class="materials-title">
+                {{ t('production.rangeTitle') }}
+              </h3>
+            </div>
+
+            <p class="materials-text">
+              {{ t('production.rangeText') }}
+            </p>
+          </div>
+
+          <div class="materials-grid q-mt-lg">
+            <div v-for="material in materials" :key="material.name" class="material-item">
+              <div class="material-name">
+                {{ material.name }}
+              </div>
+              <div class="material-desc">
+                {{ material.desc }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="industries" class="section-padding-lg">
+      <div class="cat-container">
+        <div class="section-head reveal">
+          <div>
+            <div class="industrial-eyebrow">
+              {{ t('industries.eyebrow') }}
+            </div>
+
+            <h2 class="section-title">
+              {{ t('industries.title') }}
+            </h2>
+          </div>
+        </div>
+
+        <div class="row q-col-gutter-lg q-mt-xl">
+          <div class="col-12 col-md-4">
+            <q-card flat class="industry-card reveal">
+              <div class="industry-card__code">CAT / CHEM</div>
+              <h3>{{ t('industries.chemicalTitle') }}</h3>
+              <div class="industry-card__subtitle">
+                {{ t('industries.chemicalSubtitle') }}
+              </div>
+              <p>{{ t('industries.chemicalDesc') }}</p>
+            </q-card>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <q-card flat class="industry-card industry-card--dark reveal">
+              <div class="industry-card__code">CAT / FOOD</div>
+              <h3>{{ t('industries.foodTitle') }}</h3>
+              <div class="industry-card__subtitle">
+                {{ t('industries.foodSubtitle') }}
+              </div>
+              <p>{{ t('industries.foodDesc') }}</p>
+            </q-card>
+          </div>
+          <div class="col-12 col-md-4">
+            <q-card flat class="industry-card reveal">
+              <div class="industry-card__code">CAT / RAIL</div>
+              <h3>{{ t('industries.railwayTitle') }}</h3>
+              <div class="industry-card__subtitle">
+                {{ t('industries.railwaySubtitle') }}
+              </div>
+              <p>{{ t('industries.railwayDesc') }}</p>
+            </q-card>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reasons" class="reasons-section section-padding-lg">
+      <div class="cat-container">
+        <div class="section-head reveal">
+          <div>
+            <div class="industrial-eyebrow">
+              {{ t('reasons.eyebrow') }}
+            </div>
+
+            <h2 class="section-title">
+              {{ t('reasons.title') }}
+            </h2>
+          </div>
+        </div>
+
+        <div class="reasons-grid q-mt-xl">
+          <div v-for="(reason, index) in reasons" :key="reason" class="reason-item">
+            <div class="reason-number">
+              {{ String(index + 1).padStart(2, '0') }}
+            </div>
+            <div class="reason-text">
+              {{ reason }}
+            </div>
           </div>
         </div>
       </div>
@@ -180,9 +305,13 @@
       <div class="cat-container">
         <div class="section-head reveal">
           <div>
-            <div class="industrial-eyebrow">03 / Registar</div>
+            <div class="industrial-eyebrow">
+              {{ t('legal.eyebrow') }}
+            </div>
 
-            <h2 class="section-title">Pravni i kompanijski podaci.</h2>
+            <h2 class="section-title">
+              {{ t('legal.title') }}
+            </h2>
           </div>
         </div>
 
@@ -203,18 +332,22 @@
       <div class="cat-container">
         <div class="section-head reveal">
           <div>
-            <div class="industrial-eyebrow">04 / Kontakt</div>
+            <div class="industrial-eyebrow">
+              {{ t('contact.eyebrow') }}
+            </div>
 
-            <h2 class="section-title">Kontakt za saradnju i upite.</h2>
+            <h2 class="section-title">
+              {{ t('contact.title') }}
+            </h2>
           </div>
 
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Stevana%20Prvoven%C4%8Danog%2071%2C%20%C4%8Ca%C4%8Dak%2C%20Srbija"
+            href="https://www.google.com/maps/search/?api=1&query=%C4%8Ca%C4%8Danski%20Bataljon%2024%2C%2032102%20%C4%8Ca%C4%8Dak%2C%20Srbija"
             target="_blank"
             rel="noopener noreferrer"
             class="section-link"
           >
-            → Otvori mapu
+            {{ t('contact.mapLink') }}
           </a>
         </div>
 
@@ -225,43 +358,59 @@
 
           <div class="col-12 col-md-6">
             <div class="contact-info-card reveal">
-              <h3 class="cat-heading text-h4 q-mt-none q-mb-md">CAT DOO ČAČAK</h3>
+              <h3 class="cat-heading text-h4 q-mt-none q-mb-md">
+                {{ t('contact.company') }}
+              </h3>
 
-              <p class="contact-intro">Preduzeće za proizvodnju, promet i usluge CAT DOO Čačak.</p>
+              <p class="contact-intro">
+                {{ t('contact.intro') }}
+              </p>
 
               <div class="contact-info-item">
                 <div class="contact-info-icon">01</div>
-
                 <div>
-                  <div class="contact-info-label">Adresa</div>
-                  <div class="contact-info-value">Stevana Prvovenčanog 71, Čačak, Srbija</div>
+                  <div class="contact-info-label">
+                    {{ t('contact.address') }}
+                  </div>
+                  <div class="contact-info-value">
+                    {{ t('contact.addressValue') }}
+                  </div>
                 </div>
               </div>
 
               <div class="contact-info-item">
                 <div class="contact-info-icon">02</div>
-
                 <div>
-                  <div class="contact-info-label">Kontakt osoba</div>
+                  <div class="contact-info-label">
+                    {{ t('contact.person') }}
+                  </div>
                   <div class="contact-info-value">Dejan Gugović</div>
                 </div>
               </div>
 
               <div class="contact-info-item">
                 <div class="contact-info-icon">03</div>
-
                 <div>
-                  <div class="contact-info-label">Telefon</div>
-                  <div class="contact-info-value">[UNESI BROJ TELEFONA OVDE]</div>
+                  <div class="contact-info-label">
+                    {{ t('contact.phone') }}
+                  </div>
+                  <div class="contact-info-value">
+                    <a href="tel:+381638959941">+381 63 8959941</a>
+                    <br />
+                    <a href="tel:+381646162273">+381 64 6162273</a>
+                  </div>
                 </div>
               </div>
 
               <div class="contact-info-item">
                 <div class="contact-info-icon">04</div>
-
                 <div>
-                  <div class="contact-info-label">Email</div>
-                  <div class="contact-info-value">[UNESI EMAIL OVDE]</div>
+                  <div class="contact-info-label">
+                    {{ t('contact.email') }}
+                  </div>
+                  <div class="contact-info-value">
+                    <a href="mailto:gugovic@mts.rs">gugovic@mts.rs</a>
+                  </div>
                 </div>
               </div>
 
@@ -271,17 +420,17 @@
                   loading="lazy"
                   allowfullscreen
                   referrerpolicy="no-referrer-when-downgrade"
-                  src="https://maps.google.com/maps?q=Stevana+Prvoven%C4%8Danog+71,+%C4%8Ca%C4%8Dak,+Srbija&output=embed"
+                  src="https://maps.google.com/maps?q=%C4%8Ca%C4%8Danski+Bataljon+24,+32102+%C4%8Ca%C4%8Dak,+Srbija&output=embed"
                   title="CAT DOO ČAČAK lokacija na mapi"
                 />
 
                 <q-btn
                   class="cat-btn full-width q-mt-md"
                   unelevated
-                  label="Otvori u Google Maps"
+                  :label="t('contact.openMaps')"
                   type="a"
                   target="_blank"
-                  href="https://www.google.com/maps/search/?api=1&query=Stevana%20Prvoven%C4%8Danog%2071%2C%20%C4%8Ca%C4%8Dak%2C%20Srbija"
+                  href="https://www.google.com/maps/search/?api=1&query=%C4%8Ca%C4%8Danski%20Bataljon%2024%2C%2032102%20%C4%8Ca%C4%8Dak%2C%20Srbija"
                 />
               </div>
             </div>
@@ -293,22 +442,25 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted, watch } from 'vue'
 import { useMeta } from 'quasar'
+import { useI18n } from 'vue-i18n'
 import ServiceCard from 'src/components/ServiceCard.vue'
 import ContactForm from 'src/components/ContactForm.vue'
 
-useMeta({
-  title: 'CAT DOO ČAČAK | Proizvodnja ambalaže',
+const { t, locale } = useI18n()
+
+useMeta(() => ({
+  title: t('seo.title'),
   meta: {
     description: {
       name: 'description',
-      content:
-        'CAT DOO Čačak proizvodi ambalažu za industrijske, trgovinske i distributivne sisteme. Kompanija posluje od 1992. godine na adresi Stevana Prvovenčanog 71, Čačak.',
+      content: t('seo.description'),
     },
     keywords: {
       name: 'keywords',
-      content: 'CAT DOO Čačak, ambalaža, plastična ambalaža, karton, proizvodnja ambalaže, Čačak',
+      content:
+        'CAT DOO Čačak, plastična ambalaža, hemijska ambalaža, prehrambena ambalaža, HDPE, LDPE, PP, Čačak',
     },
     robots: {
       name: 'robots',
@@ -316,11 +468,11 @@ useMeta({
     },
     ogTitle: {
       property: 'og:title',
-      content: 'CAT DOO ČAČAK | Proizvodnja ambalaže',
+      content: t('seo.title'),
     },
     ogDescription: {
       property: 'og:description',
-      content: 'Industrijski proizvođač ambalaže iz Čačka sa tradicijom od 1992. godine.',
+      content: t('seo.description'),
     },
     ogType: {
       property: 'og:type',
@@ -328,7 +480,7 @@ useMeta({
     },
     ogLocale: {
       property: 'og:locale',
-      content: 'sr_RS',
+      content: locale.value === 'sr' ? 'sr_RS' : locale.value === 'ru' ? 'ru_RU' : 'en_US',
     },
     ogImage: {
       property: 'og:image',
@@ -345,91 +497,114 @@ useMeta({
       href: 'https://cat-doo-cacak.rs/',
     },
   },
-})
+}))
 
 let revealObserver = null
 
-const stats = [
+const stats = computed(() => [
   {
     value: '1992',
-    label: 'Godina osnivanja',
-    sub: 'ESTABLISHED',
+    label: t('stats.established'),
+    sub: t('stats.establishedSub'),
   },
   {
     value: '30+',
-    label: 'Godina tradicije',
-    sub: 'INDUSTRIAL EXPERIENCE',
+    label: t('stats.tradition'),
+    sub: t('stats.traditionSub'),
   },
   {
     value: 'A+',
-    label: 'Bonitet',
-    sub: 'BUSINESS STABILITY',
+    label: t('stats.rating'),
+    sub: t('stats.ratingSub'),
   },
   {
-    value: '1721',
-    label: 'Šifra delatnosti',
-    sub: 'REGISTERED ACTIVITY',
+    value: '100+',
+    label: t('stats.products'),
+    sub: t('stats.productsSub'),
   },
-]
+])
 
-const services = [
+const services = computed(() => [
   {
     code: 'CAT-01',
-    title: 'Plastična ambalaža',
-    description:
-      'Ambalažna rešenja namenjena pakovanju, čuvanju i distribuciji proizvoda u različitim industrijskim procesima.',
+    title: t('services.plasticTitle'),
+    description: t('services.plasticDesc'),
     featured: true,
   },
   {
     code: 'CAT-02',
-    title: 'Talasasti papir i karton',
-    description:
-      'Materijali i ambalaža za transport, skladištenje i zaštitu proizvoda tokom logističkog ciklusa.',
+    title: t('services.chemicalTitle'),
+    description: t('services.chemicalDesc'),
     featured: false,
   },
   {
     code: 'CAT-03',
-    title: 'Ambalaža po meri',
-    description:
-      'Prilagođena rešenja prema nameni proizvoda, dimenzijama, seriji i zahtevima poslovnog sistema.',
+    title: t('services.foodTitle'),
+    description: t('services.foodDesc'),
     featured: false,
   },
-]
+])
 
-const legalData = [
+const materials = computed(() => [
+  t('production.materials.hdpe'),
+  t('production.materials.ldpe'),
+  t('production.materials.pp'),
+  t('production.materials.ppCopo'),
+  t('production.materials.polyethylene'),
+])
+
+const reasons = computed(() => [
+  t('reasons.items.experience'),
+  t('reasons.items.rating'),
+  t('reasons.items.products'),
+  t('reasons.items.materials'),
+  t('reasons.items.industries'),
+  t('reasons.items.railway'),
+  t('reasons.items.local'),
+])
+
+const legalData = computed(() => [
   {
-    label: 'Pun naziv',
-    value: 'Preduzeće za proizvodnju, promet i usluge CAT DOO Čačak',
+    label: t('legal.fullName'),
+    value: t('legal.fullNameValue'),
   },
   {
-    label: 'Matični broj',
+    label: t('legal.address'),
+    value: t('legal.addressValue'),
+  },
+  {
+    label: t('legal.mb'),
     value: '06076718',
   },
   {
-    label: 'PIB',
+    label: t('legal.pib'),
     value: '101115931',
   },
   {
-    label: 'Šifra delatnosti',
-    value: '1721 - Proizvodnja talasastog papira, kartona i ambalaže',
+    label: t('legal.activity'),
+    value: t('legal.activityValue'),
   },
   {
-    label: 'Tekući računi',
+    label: t('legal.accounts'),
     value: '220-8266-29 | 225-4952-46',
   },
   {
-    label: 'Datum osnivanja',
-    value: '14.07.1992. godine',
+    label: t('legal.founded'),
+    value: '14.07.1992.',
   },
   {
-    label: 'Zakonski zastupnik',
+    label: t('legal.representative'),
     value: 'Dejan Gugović',
   },
   {
-    label: 'Status',
-    value: 'Aktivno privredno društvo',
+    label: t('legal.status'),
+    value: t('legal.statusValue'),
   },
-]
+])
+
+const setDocumentLanguage = () => {
+  document.documentElement.setAttribute('lang', locale.value === 'sr' ? 'sr' : locale.value)
+}
 
 const scrollToSection = (id) => {
   const target = document.getElementById(id)
@@ -466,7 +641,12 @@ const initRevealObserver = () => {
   })
 }
 
+watch(locale, () => {
+  setDocumentLanguage()
+})
+
 onMounted(() => {
+  setDocumentLanguage()
   initRevealObserver()
 })
 

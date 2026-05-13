@@ -174,7 +174,7 @@ a {
 }
 
 .cat-header::before {
-  content: 'EST. 1992 · ČAČAK, SRBIJA';
+  content: attr(data-utility-left);
   display: block;
   width: 100%;
   padding: 8px var(--pad-x);
@@ -190,7 +190,7 @@ a {
 }
 
 .cat-header::after {
-  content: '● BONITET A+ 2026';
+  content: attr(data-utility-right);
   position: absolute;
   top: 8px;
   right: var(--pad-x);
@@ -1303,5 +1303,203 @@ a {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+}
+.language-switcher {
+  color: var(--paper) !important;
+}
+
+.cat-drawer .language-switcher {
+  color: var(--ink) !important;
+}
+
+.floating-contact-wrapper {
+  position: fixed;
+  right: 24px;
+  bottom: 82px;
+  z-index: 3000;
+}
+
+@media (max-width: 768px) {
+  .floating-contact-wrapper {
+    right: 18px;
+    bottom: 76px;
+  }
+}
+.production-lead {
+  max-width: 760px;
+  color: var(--muted-on-dark);
+}
+
+.materials-panel {
+  border: 1px solid var(--line-on-dark);
+  background: var(--ink-soft);
+  padding: 28px;
+  color: var(--paper);
+}
+
+.materials-title {
+  margin: 0;
+  font-family: var(--ff-display);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+}
+
+.materials-text {
+  max-width: 420px;
+  margin: 0;
+  color: var(--muted-on-dark);
+  line-height: 1.6;
+}
+
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--line-on-dark);
+  border-left: 1px solid var(--line-on-dark);
+}
+
+.material-item {
+  padding: 20px;
+  border-right: 1px solid var(--line-on-dark);
+  border-bottom: 1px solid var(--line-on-dark);
+}
+
+.material-name {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.material-desc {
+  margin-top: 12px;
+  color: var(--muted-on-dark);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.industry-card {
+  height: 100%;
+  min-height: 340px;
+  padding: 28px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.industry-card--dark {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--line-on-dark);
+}
+
+.industry-card__code {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.industry-card h3 {
+  margin: 48px 0 12px;
+  font-family: var(--ff-display);
+  font-size: clamp(32px, 4vw, 42px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.industry-card__subtitle {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.industry-card--dark .industry-card__subtitle {
+  color: var(--muted-on-dark);
+}
+
+.industry-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.industry-card--dark p {
+  color: var(--muted-on-dark);
+}
+
+.reasons-section {
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.reason-item {
+  min-height: 150px;
+  padding: 24px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.reason-number {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--signal);
+}
+
+.reason-text {
+  margin-top: 28px;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+@media (max-width: 1024px) {
+  .materials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .materials-panel .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .materials-grid,
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .materials-panel {
+    padding: 20px;
+  }
+
+  .industry-card {
+    min-height: auto;
   }
 }

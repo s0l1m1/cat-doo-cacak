@@ -4,6 +4,8 @@
       height-hint="92"
       class="cat-header"
       :class="{ 'cat-header--scrolled': isHeaderScrolled }"
+      :data-utility-left="t('utility.left')"
+      :data-utility-right="t('utility.right')"
     >
       <q-toolbar class="cat-container q-py-md">
         <div
@@ -28,14 +30,16 @@
             :class="{ active: activeSection === item.id }"
             @click.prevent="scrollToSection(item.id)"
           >
-            {{ item.label }}
+            {{ t(item.labelKey) }}
           </a>
         </div>
+
+        <LanguageSwitcher class="gt-sm q-ml-lg" />
 
         <q-btn
           class="gt-sm q-ml-lg cat-header-cta"
           unelevated
-          label="Pošaljite upit"
+          :label="t('nav.inquiry')"
           @click="scrollToSection('contact')"
         />
 
@@ -74,6 +78,8 @@
           />
         </div>
 
+        <LanguageSwitcher class="q-mb-md" />
+
         <q-list>
           <q-item
             v-for="item in navItems"
@@ -84,7 +90,7 @@
             @click="handleDrawerNavigation(item.id)"
           >
             <q-item-section>
-              <q-item-label>{{ item.label }}</q-item-label>
+              <q-item-label>{{ t(item.labelKey) }}</q-item-label>
             </q-item-section>
 
             <q-item-section side>
@@ -96,7 +102,7 @@
         <q-btn
           class="full-width q-mt-lg cat-btn"
           unelevated
-          label="Pošaljite upit"
+          :label="t('nav.inquiry')"
           @click="handleDrawerNavigation('contact')"
         />
       </div>
@@ -109,14 +115,19 @@
     <section class="pre-footer-cta">
       <div class="cat-container pre-footer-cta__inner">
         <div>
-          <div class="industrial-eyebrow">── Direktan kontakt</div>
-          <h2>Potrebna vam je pouzdana ambalaža za proizvodnju ili distribuciju?</h2>
+          <div class="industrial-eyebrow">
+            {{ t('footer.ctaEyebrow') }}
+          </div>
+
+          <h2>
+            {{ t('footer.ctaTitle') }}
+          </h2>
         </div>
 
         <q-btn
           unelevated
           class="pre-footer-cta__btn"
-          label="Kontaktirajte nas"
+          :label="t('footer.ctaButton')"
           @click="scrollToSection('contact')"
         />
       </div>
@@ -126,14 +137,16 @@
       <div class="cat-container footer-grid">
         <div>
           <div class="footer-brand">CAT DOO ČAČAK</div>
+
           <p class="footer-text q-mt-md q-mb-none">
-            Preduzeće za proizvodnju, promet i usluge. Fokus na ambalažna rešenja za industrijske,
-            trgovinske i distributivne sisteme.
+            {{ t('footer.description') }}
           </p>
         </div>
 
         <div>
-          <div class="footer-title">Navigacija</div>
+          <div class="footer-title">
+            {{ t('footer.navigation') }}
+          </div>
 
           <div class="column q-gutter-sm q-mt-md">
             <span
@@ -145,13 +158,15 @@
               @click="scrollToSection(item.id)"
               @keydown.enter="scrollToSection(item.id)"
             >
-              {{ item.label }}
+              {{ t(item.labelKey) }}
             </span>
           </div>
         </div>
 
         <div>
-          <div class="footer-title">Kontakt</div>
+          <div class="footer-title">
+            {{ t('footer.contact') }}
+          </div>
 
           <div class="footer-text q-mt-md">
             <div class="q-mb-sm">Stevana Prvovenčanog 71</div>
@@ -162,7 +177,9 @@
         </div>
 
         <div>
-          <div class="footer-title">Registar</div>
+          <div class="footer-title">
+            {{ t('footer.register') }}
+          </div>
 
           <div class="footer-register q-mt-md">
             <div>MB: 06076718</div>
@@ -173,38 +190,47 @@
         </div>
       </div>
 
-      <div class="cat-container footer-bottom">© 2024 CAT DOO Čačak. Sva prava zadržana.</div>
+      <div class="cat-container footer-bottom">
+        {{ t('footer.copyright') }}
+      </div>
     </footer>
 
     <FloatingCallBtn />
+    <FloatingContactBtn />
   </q-layout>
 </template>
 
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import FloatingCallBtn from 'src/components/FloatingCallBtn.vue'
+import FloatingContactBtn from 'src/components/FloatingContactBtn.vue'
+import LanguageSwitcher from 'src/components/LanguageSwitcher.vue'
+
+const { t } = useI18n()
 
 const drawerOpen = ref(false)
 const isHeaderScrolled = ref(false)
 const activeSection = ref('hero')
+
 let observer = null
 
 const navItems = [
   {
     id: 'about',
-    label: 'O nama',
+    labelKey: 'nav.about',
   },
   {
     id: 'services',
-    label: 'Proizvodi',
+    labelKey: 'nav.services',
   },
   {
     id: 'legal',
-    label: 'Podaci',
+    labelKey: 'nav.legal',
   },
   {
     id: 'contact',
-    label: 'Kontakt',
+    labelKey: 'nav.contact',
   },
 ]
 

@@ -2,32 +2,36 @@
   <q-card flat class="contact-form-card">
     <q-form ref="formRef" class="q-gutter-md" @submit.prevent="submitForm">
       <div>
-        <div class="form-eyebrow">Upit za saradnju</div>
+        <div class="form-eyebrow">
+          {{ t('form.eyebrow') }}
+        </div>
 
-        <h3 class="cat-heading text-h4 q-mt-sm q-mb-sm">Pošaljite poruku</h3>
+        <h3 class="cat-heading text-h4 q-mt-sm q-mb-sm">
+          {{ t('form.title') }}
+        </h3>
 
         <p class="text-muted q-mb-lg">
-          Popunite formu za informacije o ponudi, proizvodnji i mogućnostima saradnje.
+          {{ t('form.text') }}
         </p>
       </div>
 
       <q-input
         v-model.trim="form.fullName"
         outlined
-        label="Ime i prezime"
+        :label="t('form.fullName')"
         autocomplete="name"
-        :rules="[(val) => !!val || 'Ime i prezime je obavezno']"
+        :rules="[(val) => !!val || t('form.requiredName')]"
       />
 
       <q-input
         v-model.trim="form.email"
         outlined
         type="email"
-        label="Email adresa"
+        :label="t('form.email')"
         autocomplete="email"
         :rules="[
-          (val) => !!val || 'Email adresa je obavezna',
-          (val) => isValidEmail(val) || 'Unesite ispravnu email adresu',
+          (val) => !!val || t('form.requiredEmail'),
+          (val) => isValidEmail(val) || t('form.invalidEmail'),
         ]"
       />
 
@@ -35,22 +39,22 @@
         v-model.trim="form.phone"
         outlined
         type="tel"
-        label="Telefon"
+        :label="t('form.phone')"
         autocomplete="tel"
-        hint="Opciono"
+        :hint="t('form.phoneHint')"
       />
 
       <q-input
         v-model.trim="form.message"
         outlined
         type="textarea"
-        label="Poruka"
+        :label="t('form.message')"
         autogrow
         counter
         maxlength="1000"
         :rules="[
-          (val) => !!val || 'Poruka je obavezna',
-          (val) => val.length >= 20 || 'Poruka mora imati najmanje 20 karaktera',
+          (val) => !!val || t('form.requiredMessage'),
+          (val) => val.length >= 20 || t('form.shortMessage'),
         ]"
       />
 
@@ -58,7 +62,7 @@
         class="cat-btn full-width q-mt-sm"
         unelevated
         type="submit"
-        label="Pošalji poruku"
+        :label="t('form.submit')"
         :loading="loading"
       />
     </q-form>
@@ -68,6 +72,9 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import { Notify } from 'quasar'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const formRef = ref(null)
 const loading = ref(false)
@@ -107,8 +114,8 @@ const submitForm = async () => {
 
     Notify.create({
       type: 'positive',
-      message: 'Poruka je uspešno pripremljena.',
-      caption: 'Hvala na upitu. Kontaktiraćemo vas u najkraćem roku.',
+      message: t('form.success'),
+      caption: t('form.successCaption'),
     })
 
     resetForm()

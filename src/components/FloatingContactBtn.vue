@@ -4,19 +4,18 @@
     enter-active-class="animated fadeInUp"
     leave-active-class="animated fadeOutDown"
   >
-    <div v-show="isVisible" class="floating-call-wrapper">
+    <div v-show="isVisible" class="floating-contact-wrapper">
       <q-btn
-        class="floating-call-btn"
+        class="floating-contact-btn"
         unelevated
-        type="a"
-        :href="phoneHref"
-        aria-label="Pozovite CAT DOO ČAČAK"
+        aria-label="Pošaljite upit"
+        @click="scrollToContact"
       >
-        <span class="floating-call-btn__text">{{ t('floating.call') }}</span>
-        <span class="floating-call-btn__arrow">→</span>
+        <span class="floating-contact-btn__text">{{ t('floating.contact') }}</span>
+        <span class="floating-contact-btn__arrow">→</span>
 
         <q-tooltip>
-          {{ t('floating.tooltipCall') }}
+          {{ t('floating.tooltipContact') }}
         </q-tooltip>
       </q-btn>
     </div>
@@ -31,7 +30,6 @@ import { useI18n } from 'vue-i18n'
 const $q = useQuasar()
 const { t } = useI18n()
 
-const phoneHref = 'tel:+381638959941'
 const hasScrolledEnough = ref(false)
 
 const isVisible = computed(() => {
@@ -46,6 +44,17 @@ const updateVisibility = () => {
   hasScrolledEnough.value = window.scrollY > 300
 }
 
+const scrollToContact = () => {
+  const target = document.getElementById('contact')
+
+  if (!target) return
+
+  target.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  })
+}
+
 onMounted(() => {
   updateVisibility()
   window.addEventListener('scroll', updateVisibility, { passive: true })
@@ -57,7 +66,14 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.floating-call-btn {
+.floating-contact-wrapper {
+  position: fixed;
+  right: 24px;
+  bottom: 82px;
+  z-index: 3000;
+}
+
+.floating-contact-btn {
   min-height: 46px;
   padding: 0 18px;
   border-radius: var(--radius-sm);
@@ -65,15 +81,27 @@ onUnmounted(() => {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  background: var(--signal) !important;
-  color: var(--ink) !important;
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  border: 1px solid var(--line-on-dark);
 }
 
-.floating-call-btn__text {
+.floating-contact-btn:hover {
+  background: var(--ink-soft) !important;
+}
+
+.floating-contact-btn__text {
   margin-right: 10px;
 }
 
-.floating-call-btn__arrow {
+.floating-contact-btn__arrow {
   font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .floating-contact-wrapper {
+    right: 18px;
+    bottom: 76px;
+  }
 }
 </style>

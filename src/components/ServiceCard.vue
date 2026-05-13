@@ -7,7 +7,7 @@
       </div>
 
       <div class="service-card__image">
-        <div class="service-card__image-label">CAT DOO ČAČAK</div>
+        <div class="service-card__image-label">{{ label }}</div>
       </div>
 
       <div class="service-card__content">
@@ -28,6 +28,10 @@ defineProps({
   code: {
     type: String,
     default: 'CAT-00',
+  },
+  label: {
+    type: String,
+    default: 'CAT DOO ČAČAK',
   },
 
   title: {
