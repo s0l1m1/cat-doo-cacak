@@ -207,7 +207,7 @@ export const messages = {
       navigation: 'Navigacija',
       contact: 'Kontakt',
       register: 'Registar',
-      copyright: '© 2024 CAT DOO Čačak. Sva prava zadržana.',
+      copyright: '© 2026 CAT DOO Čačak. Sva prava zadržana.',
     },
   },
 
@@ -420,7 +420,7 @@ export const messages = {
       navigation: 'Navigation',
       contact: 'Contact',
       register: 'Registry',
-      copyright: '© 2024 CAT DOO Čačak. All rights reserved.',
+      copyright: '© 2026 CAT DOO Čačak. All rights reserved.',
     },
   },
 
@@ -633,7 +633,7 @@ export const messages = {
       navigation: 'Навигация',
       contact: 'Контакт',
       register: 'Реестр',
-      copyright: '© 2024 CAT DOO Čačak. Все права защищены.',
+      copyright: '© 2026 CAT DOO Čačak. Все права защищены.',
     },
   },
 }
