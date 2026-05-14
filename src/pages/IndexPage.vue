@@ -344,7 +344,7 @@
           </div>
 
           <a
-            href="https://www.google.com/maps/search/?api=1&query=%C4%8Ca%C4%8Danski%20Bataljon%2024%2C%2032102%20%C4%8Ca%C4%8Dak%2C%20Srbija"
+            href="https://www.google.com/maps/dir/?api=1&destination=43.88532309250508%2C20.332913996911323"
             target="_blank"
             rel="noopener noreferrer"
             class="section-link"
