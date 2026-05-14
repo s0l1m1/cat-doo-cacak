@@ -18,6 +18,7 @@ export const messages = {
       legal: 'Podaci',
       contact: 'Kontakt',
       inquiry: 'Pošaljite upit',
+      products: 'Proizvodi',
     },
 
     utility: {
@@ -227,6 +228,7 @@ export const messages = {
     nav: {
       about: 'About',
       services: 'Production',
+      products: 'Products',
       legal: 'Company data',
       contact: 'Contact',
       inquiry: 'Send inquiry',
@@ -440,6 +442,7 @@ export const messages = {
     nav: {
       about: 'О нас',
       services: 'Производство',
+      products: 'Продукция',
       legal: 'Данные',
       contact: 'Контакт',
       inquiry: 'Отправить запрос',

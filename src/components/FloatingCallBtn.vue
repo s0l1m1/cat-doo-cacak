@@ -31,7 +31,7 @@ import { useI18n } from 'vue-i18n'
 const $q = useQuasar()
 const { t } = useI18n()
 
-const phoneHref = 'tel:+381638959941'
+const phoneHref = 'tel:+381646162273'
 const hasScrolledEnough = ref(false)
 
 const isVisible = computed(() => {

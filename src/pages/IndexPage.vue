@@ -224,6 +224,8 @@
       </div>
     </section>
 
+    <GalerijaProizvoda />
+
     <section id="industries" class="section-padding-lg">
       <div class="cat-container">
         <div class="section-head reveal">
@@ -420,7 +422,7 @@
                   loading="lazy"
                   allowfullscreen
                   referrerpolicy="no-referrer-when-downgrade"
-                  src="https://maps.google.com/maps?q=%C4%8Ca%C4%8Danski+Bataljon+24,+32102+%C4%8Ca%C4%8Dak,+Srbija&output=embed"
+                  src="https://maps.google.com/maps?ll=43.88532309250508,20.332913996911323&z=17&output=embed"
                   title="CAT DOO ČAČAK lokacija na mapi"
                 />
 
@@ -430,7 +432,7 @@
                   :label="t('contact.openMaps')"
                   type="a"
                   target="_blank"
-                  href="https://www.google.com/maps/search/?api=1&query=%C4%8Ca%C4%8Danski%20Bataljon%2024%2C%2032102%20%C4%8Ca%C4%8Dak%2C%20Srbija"
+                  href="https://www.google.com/maps/dir/?api=1&destination=43.88532309250508%2C20.332913996911323"
                 />
               </div>
             </div>
@@ -447,6 +449,7 @@ import { useMeta } from 'quasar'
 import { useI18n } from 'vue-i18n'
 import ServiceCard from 'src/components/ServiceCard.vue'
 import ContactForm from 'src/components/ContactForm.vue'
+import GalerijaProizvoda from 'src/components/GalerijaProizvoda.vue'
 
 const { t, locale } = useI18n()
 

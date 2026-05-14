@@ -231,6 +231,10 @@ const navItems = [
     labelKey: 'nav.services',
   },
   {
+    id: 'products',
+    labelKey: 'nav.products',
+  },
+  {
     id: 'legal',
     labelKey: 'nav.legal',
   },
