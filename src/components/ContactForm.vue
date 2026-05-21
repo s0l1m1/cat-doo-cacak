@@ -20,6 +20,7 @@
         outlined
         :label="t('form.fullName')"
         autocomplete="name"
+        name="name"
         :rules="[(val) => !!val || t('form.requiredName')]"
       />
 
@@ -29,6 +30,7 @@
         type="email"
         :label="t('form.email')"
         autocomplete="email"
+        name="email"
         :rules="[
           (val) => !!val || t('form.requiredEmail'),
           (val) => isValidEmail(val) || t('form.invalidEmail'),
@@ -41,6 +43,7 @@
         type="tel"
         :label="t('form.phone')"
         autocomplete="tel"
+        name="phone"
         :hint="t('form.phoneHint')"
       />
 
@@ -52,10 +55,21 @@
         autogrow
         counter
         maxlength="1000"
+        name="message"
         :rules="[
           (val) => !!val || t('form.requiredMessage'),
           (val) => val.length >= 20 || t('form.shortMessage'),
         ]"
+      />
+
+      <!-- Honeypot anti-spam polje. Korisnik ga ne vidi. -->
+      <input
+        v-model="form.website"
+        type="text"
+        name="_gotcha"
+        tabindex="-1"
+        autocomplete="off"
+        class="honeypot-field"
       />
 
       <q-btn
@@ -64,6 +78,7 @@
         type="submit"
         :label="t('form.submit')"
         :loading="loading"
+        :disable="loading"
       />
     </q-form>
   </q-card>
@@ -74,7 +89,9 @@ import { reactive, ref } from 'vue'
 import { Notify } from 'quasar'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT
 
 const formRef = ref(null)
 const loading = ref(false)
@@ -84,6 +101,7 @@ const form = reactive({
   email: '',
   phone: '',
   message: '',
+  website: '',
 })
 
 const isValidEmail = (value) => {
@@ -96,10 +114,19 @@ const resetForm = () => {
   form.email = ''
   form.phone = ''
   form.message = ''
+  form.website = ''
 
   if (formRef.value) {
     formRef.value.resetValidation()
   }
+}
+
+const notifyError = (message, caption) => {
+  Notify.create({
+    type: 'negative',
+    message,
+    caption,
+  })
 }
 
 const submitForm = async () => {
@@ -107,10 +134,46 @@ const submitForm = async () => {
 
   if (!isValid) return
 
+  if (!FORMSPREE_ENDPOINT) {
+    notifyError(
+      'Formspree endpoint nije podešen.',
+      'Proveri VITE_FORMSPREE_ENDPOINT u .env fajlu i na Vercelu.',
+    )
+
+    return
+  }
+
+  // Ako bot popuni skriveno polje, prekidamo slanje.
+  if (form.website) return
+
   loading.value = true
 
-  window.setTimeout(() => {
-    loading.value = false
+  try {
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: form.fullName,
+        email: form.email,
+        phone: form.phone || 'Nije unet',
+        message: form.message,
+        language: locale.value,
+        source: 'CAT DOO ČAČAK website',
+        page: window.location.href,
+        _subject: 'Novi upit sa sajta CAT DOO ČAČAK',
+        _gotcha: form.website,
+      }),
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null)
+      const errorMessage = errorData?.errors?.[0]?.message || 'Formspree request failed'
+
+      throw new Error(errorMessage)
+    }
 
     Notify.create({
       type: 'positive',
@@ -119,7 +182,15 @@ const submitForm = async () => {
     })
 
     resetForm()
-  }, 700)
+  } catch (error) {
+    notifyError(
+      t('form.error') || 'Poruka nije poslata.',
+      t('form.errorCaption') ||
+        'Pokušajte ponovo ili nas kontaktirajte direktno putem telefona/emaila.',
+    )
+  } finally {
+    loading.value = false
+  }
 }
 </script>
 
@@ -134,5 +205,14 @@ const submitForm = async () => {
 
 .form-eyebrow::before {
   content: '── ';
+}
+
+.honeypot-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 </style>

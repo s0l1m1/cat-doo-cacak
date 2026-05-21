@@ -180,6 +180,8 @@ export const messages = {
       fullName: 'Ime i prezime',
       email: 'Email adresa',
       phone: 'Telefon',
+      error: 'Poruka nije poslata.',
+      errorCaption: 'Pokušajte ponovo ili nas kontaktirajte direktno putem telefona/emaila.',
       phoneHint: 'Opciono',
       message: 'Poruka',
       submit: 'Pošalji poruku',
@@ -389,6 +391,8 @@ export const messages = {
 
     form: {
       eyebrow: 'Cooperation inquiry',
+      error: 'Message was not sent.',
+      errorCaption: 'Please try again or contact us directly by phone/email.',
       title: 'Send a message',
       text: 'Fill out the form for information about our offer, production and cooperation opportunities.',
       fullName: 'Full name',
@@ -604,6 +608,8 @@ export const messages = {
     form: {
       eyebrow: 'Запрос о сотрудничестве',
       title: 'Отправить сообщение',
+      error: 'Сообщение не отправлено.',
+      errorCaption: 'Попробуйте снова или свяжитесь с нами напрямую по телефону/email.',
       text: 'Заполните форму для информации о предложении, производстве и возможностях сотрудничества.',
       fullName: 'Имя и фамилия',
       email: 'Email адрес',
